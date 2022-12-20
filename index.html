@@ -23,19 +23,54 @@
     />
   </head>
   <body>
-    <!--btton on smaller screen-->
-    <div class="add__new__btn__mobile__only ">
-       <button
-              class="btn btn-primary d-flex align-items-center gap-2"
+    <!-- Modal for ui display on home page-->
+    <div
+      class="modal fade"
+      id="showTask"
+      tabindex="-1"
+      aria-labelledby="showTaskLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="showTaskLabel">Task details</h1>
+            <button
               type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#addNewModel"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body task__modal__body">
+            <!-- <p>js txt</p> -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
             >
-              <i class="fas fa-plus"></i>
-              Add an item
+              Close
             </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- Modal -->
+    <!--btton on smaller screen-->
+    <div class="add__new__btn__mobile__only d-md-none">
+      <button
+        class="btn btn-primary d-flex align-items-center gap-2"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#addNewModel"
+      >
+        <i class="fas fa-plus"></i>
+        Add an item
+      </button>
+    </div>
+    <!-- Modal  for add an item-->
     <div
       class="modal fade"
       id="addNewModel"
@@ -46,9 +81,7 @@
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="addNewModelLabel">
-              Add new Task
-            </h1>
+            <h1 class="modal-title fs-5" id="addNewModelLabel">Add new Task</h1>
             <button
               type="button"
               class="btn-close"
@@ -65,7 +98,6 @@
                   class="form-control"
                   id="imageurl"
                   placeholder="https://example.com/harshit"
-                  required
                 />
               </div>
               <div class="mb-3">
@@ -100,22 +132,23 @@
                   rows="4"
                 ></textarea>
               </div>
+              <button
+                type="button"
+                class="btn btn-secondary btn-left mt-2"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="submit" class="btn btn-primary btn-left mt-2">
+                Save changes
+              </button>
             </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary btn-left "
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary btn-left">Save changes</button>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- nav bar -->
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Tasky</a>
@@ -151,6 +184,7 @@
       </div>
     </nav>
 
+    <!-- search i/p with display card -->
     <div class="container">
       <!-- Content here -->
       <section class="mt-4">
@@ -173,7 +207,7 @@
       </section>
       <section class="mt-4">
         <div class="row task__contents">
-          <h1>This is the place where we will get all the cards</h1>
+          <!-- <h1>This is the place where we will get all the cards</h1> -->
         </div>
       </section>
     </div>
